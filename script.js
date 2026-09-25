@@ -974,6 +974,19 @@ const openingResponse =
     document.getElementById("opening-response");
 
 function enterGame() {
+    const music = document.getElementById("bg-music");
+
+    // Start music immediately from the user's tap.
+    if (music) {
+        music.src = "assets/music/opening.mp3";
+        music.volume = 0.35;
+        music.load();
+
+        music.play().catch(error => {
+            console.error("Opening music failed:", error);
+        });
+    }
+
     openingResponse.textContent =
         "Good. I made something for you. ♡";
 
@@ -982,16 +995,6 @@ function enterGame() {
 
         dialogueIndex = 0;
         showDialogue();
-
-        const music = document.getElementById("bg-music");
-
-        if (music) {
-            music.src = "assets/music/opening.mp3";
-            music.volume = 0.35;
-            music.play().catch(error => {
-                console.error("Opening music failed:", error);
-            });
-        }
     }, 1200);
 }
 
@@ -1060,12 +1063,7 @@ document.getElementById("lara-yes").addEventListener("click", () => {
 });
 
 document.getElementById("lara-obviously").addEventListener("click", () => {
-    openingResponse.textContent =
-        "Right. Sorry. Continue. ♡";
-
-    setTimeout(() => {
-        enterGame();
-    }, 1000);
+    enterGame();
 });
 
 /* BEDROOM OBJECTS */
