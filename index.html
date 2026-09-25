@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LARA.EXE</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<audio id="bg-music" preload="auto"></audio>
+
+<main class="game">
+
+    <!-- START SCREEN -->
+    <section id="start-screen" class="screen active">
+
+        <div class="start-content">
+
+            <p class="small-text">
+                A little something for one very specific person.
+            </p>
+
+            <h1>
+                FOR LARA.
+            </h1>
+
+            <p class="subtitle">
+                An unnecessarily elaborate<br>
+                way of telling you something.
+            </p>
+
+            <p class="question">
+                Are you Lara?
+            </p>
+
+            <div class="start-choices">
+
+                <button id="lara-yes">
+                    YES
+                </button>
+
+                <button id="lara-obviously">
+                    ...Obviously?
+                </button>
+
+            </div>
+
+            <p id="opening-response"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAME SCREEN -->
+    <section id="game-screen" class="screen">
+
+        <div class="game-world">
+
+            <div class="room-layer">
+
+                <button
+                        class="room-object computer-object"
+                        id="computer-object"
+                        aria-label="Computer">
+                    <span>✦</span>
+                </button>
+
+                <button
+                        class="room-object coffee-object"
+                        id="coffee-object"
+                        aria-label="Coffee">
+                    <span>✦</span>
+                </button>
+
+                <button
+                        class="room-object bookshelf-object"
+                        id="bookshelf-object"
+                        aria-label="Bookshelf">
+                    <span>✦</span>
+                </button>
+
+                <button
+                        class="room-object bed-object"
+                        id="bed-object"
+                        aria-label="Bed">
+                    <span>✦</span>
+                </button>
+
+                <button
+                        class="room-object music-player-object"
+                        id="music-player-object"
+                        aria-label="Music player">
+                    <span>✦</span>
+                </button>
+
+            </div>
+
+            <div id="object-message" class="object-message"></div>
+            <img
+                    id="player"
+                    src="assets/characters/player.png"
+                    alt="Player character"
+            >
+
+            <div class="stars">✦　·　✦　　·　✧</div>
+
+            <div class="game-message">
+
+                <div class="speaker-name">
+                    ELIANA
+                </div>
+
+                <p id="game-text">
+                    I don't remember exactly when you became important to me.
+                </p>
+
+                <div class="continue-indicator">
+                    ▼
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="controls">
+
+            <button class="control-button" id="left-button">
+                ◀
+            </button>
+
+            <button class="control-button" id="interact-button">
+                ♡
+            </button>
+
+            <button class="control-button" id="right-button">
+                ▶
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- INSTAGRAM SCENE -->
+    <section id="instagram-screen" class="screen">
+
+        <div class="instagram-scene">
+
+            <div class="instagram-post">
+
+                <img
+                        src="assets/backgrounds/lara-instagram.png"
+                        alt="Lara's Instagram post"
+                >
+
+            </div>
+
+            <div class="instagram-caption">
+                <p>
+                    And then there was you.
+                </p>
+
+                <button id="instagram-button">
+                    Continue ♡
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LARA REACTION -->
+
+    <section id="timeline-screen" class="screen">
+
+        <div class="timeline-scene">
+
+            <div class="timeline-title">
+                <p>LOADING MEMORIES...</p>
+                <h2>HOW IT STARTED</h2>
+            </div>
+
+            <div class="timeline-card">
+
+            <span id="timeline-date">
+                AUGUST 23, 2026
+            </span>
+
+                <p id="timeline-text">
+                    The first time we talked.
+                </p>
+
+            </div>
+
+            <button id="timeline-button">
+                Continue ♡
+            </button>
+
+        </div>
+
+    </section>
+
+    <section id="lara-reaction-screen" class="screen">
+
+        <div class="memory-scene">
+
+            <div class="memory-header">
+                <span id="memory-number">MEMORY 01</span>
+            </div>
+
+            <div class="memory-image-container">
+
+                <img
+                        id="memory-image"
+                        src="assets/memories/memory01.jpeg"
+                        alt="A memory"
+                >
+
+            </div>
+
+            <div class="memory-caption">
+                <p id="memory-caption-text">
+                    I didn't know it then,
+                    but this was the beginning of something.
+                </p>
+            </div>
+
+            <button id="memory-next">
+                Continue ♡
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- LETTER SCREEN -->
+
+    <section id="relationship-screen" class="screen">
+
+        <div class="relationship-scene">
+
+            <div class="relationship-character">
+                <img
+                        id="relationship-player"
+                        src="assets/characters/player_affectionate.png"
+                        alt="Eliana"
+                >
+            </div>
+
+            <div class="relationship-box">
+
+                <div class="relationship-speaker">
+                    ELIANA
+                </div>
+
+                <p id="relationship-text">
+                    Somewhere along the way...
+                    you became someone I really wanted to keep around.
+                    <br><br>
+                    So... what should I call you?
+                </p>
+
+                <div id="relationship-options" class="relationship-options">
+
+                    <button data-choice="Lara">
+                        Lara.
+                    </button>
+
+                    <button data-choice="favorite">
+                        My favorite person.
+                    </button>
+
+                    <button data-choice="baby">
+                        Baby ♡
+                    </button>
+
+                </div>
+
+                <button
+                        id="relationship-next"
+                        style="display: none;">
+                    Continue ♡
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="letter-screen" class="screen">
+
+        <div class="letter-scene">
+
+            <div class="letter-header">
+                <span>♡ A LETTER FOR LARA ♡</span>
+                <span id="letter-page-number">PAGE 1 / 5</span>
+            </div>
+
+            <div class="letter-paper">
+
+                <div id="letter-page-content">
+
+                    <p class="letter-opening">
+                        To my favorite person to 'bully', annoy, tease,
+                        and somehow love more every day, Lara.
+                    </p>
+
+                    <p>
+                        Sabi ng iba sa'kin, workaholic ako.
+                    </p>
+
+                    <p>
+                        Totoo naman. It's 12:43 AM, September 24,
+                        at ayokong tumigil.
+                    </p>
+
+                    <p>
+                        Nababalisa man ang aking damdamin,
+                        hindi ako titigil.<br>
+                        Bumigay man ang aking mga kamay,
+                        hindi ako titigil.<br>
+                        Mahulog man ang aking ulo,
+                        hindi ako titigil.<br>
+                        Sabihin mo man sa'kin na ubod ng pagod
+                        ang hakbang ng bawat salita ko,
+                        hindi ako titigil.
+                    </p>
+
+                    <p>
+                        Walang duda sa aking puso't isipan na ako'y
+                        isang "workaholic"; duwag sa harapan ng pahinga,
+                        alipin ng takbo ng mundo.
+                    </p>
+
+                    <p>
+                        Subalit hindi ako baliw. Hindi ako mangmang.
+                    </p>
+
+                    <p>
+                        Ako'y taong nagmamahal lamang.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button id="letter-next">
+                Continue ♡
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL SCREEN -->
+    <section id="final-screen" class="screen">
+
+        <div class="final-content">
+
+            <p>Lara.</p>
+
+            <h2>
+                May I be<br>
+                your girlfriend?
+            </h2>
+
+            <div class="final-buttons">
+
+                <button id="yes-button">
+                    YES ♡
+                </button>
+
+                <button id="moment-button">
+                    I NEED A MOMENT
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUCCESS SCREEN -->
+    <section id="success-screen" class="screen">
+
+        <img
+                id="final-dancing-sprite"
+                src="assets/characters/player_affectionate.png"
+                alt=""
+        >
+
+        <div class="confetti-container"></div>
+
+        <div id="yay-overlay">
+            <div id="yay-text">YAAAAAAYYY</div>
+            <div id="yay-ending">ay, napaos</div>
+        </div>
+
+        <div class="success-content">
+
+            <p class="success-label">♡ SYSTEM UPDATE ♡</p>
+
+            <h2>STATUS:</h2>
+
+            <div class="success-status">
+                TOGETHER
+            </div>
+
+            <p class="success-names">
+                Lara + Eliana
+            </p>
+
+            <p class="success-message">
+                You said yes.
+                <br><br>
+                So I guess this is where
+                the story changes.
+                <br><br>
+                From "me" and "you"
+                <br>
+                to "us." ♡
+            </p>
+
+            <p class="success-final">
+                And if this is only the beginning...
+                <br><br>
+                I can't wait to see
+                what happens next. ♡
+            </p>
+
+            <p class="system-footer">
+                SYSTEM MESSAGE:<br>
+                thank you for playing LARA.EXE
+            </p>
+
+        </div>
+
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
